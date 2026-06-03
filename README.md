@@ -3,7 +3,7 @@
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-<KH정보교육원 첫 번째 프로젝트 + Fork 한 거 (프로젝트 원본은 밑에 있습니다) >
+<KH정보교육원 첫 번째 프로젝트 + Fork 한 거 (프로젝트 원본 주소는 밑에 있습니다) >
 https://github.com/onlyworkjay/react_semi.git
 
 Semi Project 원본 주소: https://github.com/lshlsh98/react_semi
