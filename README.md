@@ -5,7 +5,7 @@
 <KH정보교육원 첫 번째 프로젝트 + Fork 한 거 (프로젝트 "원본" 주소는 밑에 있습니다) >
 https://github.com/onlyworkjay/react_semi.git
 
-[📄 C2C 세미 프로젝트 발표자료](./C2C_세미프로젝트.pdf)
+[📄 C2C 세미 프로젝트 발표자료](./C2C_세미_프로젝트.pdf)
 
 Semi Project "원본" 주소: https://github.com/lshlsh98/react_semi
 
