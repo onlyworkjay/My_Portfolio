@@ -11,7 +11,7 @@ Semi Project "원본" 주소: https://github.com/lshlsh98/react_semi
 
 Semi Project의 PPT 주소(공개 보기 링크 전용): https://canva.link/hwzg2pnrnn5bkbu
 
-KH정보교육원 Semi Project (2026.3.24 ~ 2026.4.22)
+프로젝트 기간: 2026.3.24 ~ 2026.4.22
 
 내용: 프로젝트 소개 중고 거래를 중심으로 커뮤니티 기능을 결합한 통합 서비스로, 이용자들이 중고 거래를 통해 자원 재사용을 실천하고 탄소 배출 감소에 기여할 수 있도록 돕는 프로젝트
 
