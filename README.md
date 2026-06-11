@@ -29,3 +29,5 @@ KH정보교육원 Semi Project (2026.3.24 ~ 2026.4.22)
 https://github.com/onlyworkjay/ESG-Project
 
 Final Project "원본" 주소: https://github.com/comiNamuSoop/ESG-Project
+
+KH정보교육원 Final Project (2026.5.11 ~ 2026.6.9)
