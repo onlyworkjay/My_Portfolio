@@ -40,7 +40,7 @@ https://github.com/onlyworkjay/ESG-MAIN.git
 선택 이후에는 후기를 작성하여 다른 사용자와 경험을 공유할 수 있습니다.
 
 담당 기능:<br>
-메인페이지<br>
+메인페이지
   - 인기 메뉴 랭킹<br>
   - 사용자 랭킹
 
