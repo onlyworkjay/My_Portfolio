@@ -2,7 +2,7 @@
 
 KH정보교육원 팀 프로젝트 2개 + 개인 프로젝트 저장소입니다.
 
-📄 포트폴리오 PPT: [Canva 링크](https://canva.link/keghmh1725gz40x)
+📄 나의 포트폴리오 PPT: [Canva 링크](https://canva.link/keghmh1725gz40x)
 
 ---
 
@@ -23,6 +23,8 @@ KH정보교육원 팀 프로젝트 2개 + 개인 프로젝트 저장소입니다
 📁 GitHub: https://github.com/onlyworkjay/react_semi  
 
 📄 발표자료: [C2C 세미 프로젝트.pdf](./C2C_세미_프로젝트.pdf)
+
+📊 ERD CLOUD: [https://www.erdcloud.com/d/DbbW24AQSumQDHv3B](https://www.erdcloud.com/d/83X9JCE2vJupJspf5)
 
 
 > 중고 거래를 중심으로 커뮤니티 기능을 결합한 통합 서비스로, 이용자들이 중고 거래를 통해 자원 재사용을 실천하고 탄소 배출 감소에 기여할 수 있도록 돕는 프로젝트입니다.
