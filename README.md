@@ -24,7 +24,6 @@ KH정보교육원 팀 프로젝트 2개 + 개인 프로젝트 저장소입니다
 
 📄 발표자료: [C2C 세미 프로젝트.pdf](./C2C_세미_프로젝트.pdf)
 
-📊 ERD CLOUD: https://www.erdcloud.com/d/DbbW24AQSumQDHv3B
 
 > 중고 거래를 중심으로 커뮤니티 기능을 결합한 통합 서비스로, 이용자들이 중고 거래를 통해 자원 재사용을 실천하고 탄소 배출 감소에 기여할 수 있도록 돕는 프로젝트입니다.
 
@@ -286,6 +285,8 @@ public ResponseEntity<?> deleteReport(
 📁 GitHub: https://github.com/onlyworkjay/ESG-MAIN  
 
 📄 발표자료: [ESG 파이널프로젝트.pdf](./ESG_파이널프로젝트.pdf)
+
+📊 ERD CLOUD: https://www.erdcloud.com/d/DbbW24AQSumQDHv3B
 
 > 사용자가 햄버거 메뉴를 검색하고 가격·영양정보·후기를 비교하여 더 쉽게, 더 좋은 메뉴를 선택할 수 있도록 돕는 서비스입니다. 비교 후 선택한 메뉴를 기록하고, 그 기록을 바탕으로 후기를 작성해 다른 사용자와 경험을 공유할 수 있습니다.
 
