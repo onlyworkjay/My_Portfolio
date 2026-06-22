@@ -798,3 +798,137 @@ ERD CLOUD 테이블 : https://www.erdcloud.com/d/jWiZEGb86F7yWnYAi
 |--------|-----|------|:---------:|
 | POST | /stats | 체중 입력 | O |
 | GET | /stats/my | 내 체중 변화 기록 전체 조회 (그래프용) | O |
+
+---
+## 📌 주요 기능 및 기능 상세
+
+1. **회원가입 및 로그인**
+   - 이메일 인증 (6자리 숫자 인증번호, 유효시간 3분)
+   - 아이디·닉네임·이메일 중복 확인
+   - JWT 토큰 기반 로그인 / 5분 전 세션 만료 경고 및 연장 / 자동 로그아웃
+
+2. **피드 등록**
+   - 사진 필수 (최대 4장, JPG·JPEG·PNG·WEBP, 장당 최대 10MB)
+   - 사진 없이는 칼로리·제목 입력 불가 (순서 강제)
+   - 하루 최대 3번 업로드 제한, 초과 시 SWAL 경고
+
+3. **피드 조회 (메인·전체·상세)**
+   - 메인페이지는 당일 피드만, 피드 페이지는 전체 피드 출력
+   - 키워드 검색 (제목·내용), 페이지네이션 (10개)
+   - 상세보기: 사진 슬라이드 뷰어, 칼로리·작성일(시분 포함)·제목·내용 표시
+
+4. **날짜별 조회 (캘린더 페이지)**
+   - 나의 피드만 반영되는 캘린더 / 기록 있는 날짜에 점(dot) 표시
+   - 미래 날짜 비활성화 / 날짜 클릭 시 해당일 피드 필터링
+   - 제목 클릭으로 연도→월 빠른 선택 가능 / 초기화 버튼으로 전체 피드 복귀
+
+5. **통계 페이지**
+   - 날짜별 체중 입력 (소수점 둘째 자리까지, 1~300kg 범위 제한)
+   - Recharts 꺾은선 그래프 (같은 날 여러 건 입력 시 마지막 값 기준)
+   - 내 피드 사진 슬라이드 뷰어 / 사진 클릭 시 MODAL로 원본 크기 출력
+
+6. **마이페이지**
+   - 프로필 사진 변경·기본 이미지 설정
+   - 닉네임·이메일·비밀번호 변경 → 헤더에 즉시 반영 (updateUser)
+   - 회원 탈퇴 (Hard Delete) / 내가 작성한 피드 목록 조회
+
+---
+
+## 💡 핵심 코드
+
+### ① JWT 세션 관리 (AuthContext.jsx)
+5분 남았을 때 자동으로 연장 여부를 묻고, 만료 시 자동 로그아웃 처리
+
+```jsx
+// 1초마다 남은 시간 갱신 + 5분 남았을 때 연장 안내
+useEffect(() => {
+  const tick = () => {
+    const exp = getTokenExpiry(token);
+    const remaining = Math.max(0, Math.round((exp - Date.now()) / 1000));
+    setRemainingSeconds(remaining);
+
+    if (remaining <= 0) {
+      logout();
+      return;
+    }
+    if (remaining <= 300 && !warnedRef.current) {
+      warnedRef.current = true;
+      Swal.fire({
+        title: "세션이 곧 종료됩니다",
+        text: "5분 후 자동 로그아웃됩니다. 연장하시겠습니까?",
+        showCancelButton: true,
+        confirmButtonText: "연장하기",
+      }).then((result) => {
+        if (result.isConfirmed) extendSession();
+      });
+    }
+  };
+  tick();
+  const interval = setInterval(tick, 1000);
+  return () => clearInterval(interval);
+}, [token]);
+```
+
+### ② 피드 등록 유효성 검사 (WritePage.jsx)
+사진 첨부 → 칼로리 → 제목 순서를 강제하고, 허용되지 않는 파일 형식을 차단
+
+```jsx
+const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+
+const handleImgChange = (idx, e) => {
+  const file = e.target.files[0];
+  if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
+    showSwal({ type: "warning", title: "JPG·JPEG·PNG·WEBP 형식만 첨부할 수 있습니다." });
+    e.target.value = "";
+    return;
+  }
+  // ...
+};
+
+const handleSubmit = (e) => {
+  if (!hasImage) { showSwal({ title: "사진을 1장 이상 첨부해주세요." }); return; }
+  if (!title.trim()) { showSwal({ title: "제목을 입력해주세요." }); return; }
+  if (!calories) { showSwal({ title: "칼로리를 입력해주세요." }); return; }
+  // ...
+};
+```
+
+### ③ 체중 그래프 - 날짜별 마지막 값 기준 처리 (StatPage.jsx)
+같은 날 여러 번 입력해도 마지막 값 하나만 그래프에 반영
+
+```jsx
+const chartData = useMemo(() => {
+  const lastWeightByDate = new Map();
+  // Map.set은 같은 키를 다시 쓰면 덮어쓰므로, 자연히 "마지막 입력값"이 남음
+  stats.forEach((s) => {
+    lastWeightByDate.set(s.date, s.weight);
+  });
+  return Array.from(lastWeightByDate.entries())
+    .sort(([a], [b]) => new Date(a) - new Date(b))
+    .map(([date, weight]) => {
+      const [, m, d] = date.split("-");
+      return { date: `${Number(m)}.${Number(d)}`, weight };
+    });
+}, [stats]);
+```
+
+### ④ 캘린더 - 기록 있는 날짜 dot 표시 및 미래 날짜 비활성화 (CalendarPage.jsx)
+내가 게시물을 올린 날짜에만 점을 찍고, 미래 날짜는 클릭 불가 처리
+
+```jsx
+// 캘린더에 점 찍을 날짜 - 내가 게시물을 올린 날짜
+const myDates = new Set(myPosts.map((w) => toDateKey(w.createdAt)));
+
+// 날짜 셀 렌더링 - 미래 날짜는 비활성화, 기록 있는 날짜에 점 표시
+const isFuture = d !== null && new Date(year, month, d) > todayMidnight;
+
+<div
+  className={[
+    styles.miniCalDay,
+    dateKey && recordDates.has(dateKey) ? styles.hasRecord : "",
+  ].filter(Boolean).join(" ")}
+  style={isFuture ? { color: "#cbd5e1", cursor: "not-allowed", pointerEvents: "none" } : undefined}
+  onClick={() => dateKey && !isFuture && onDateSelect(dateKey)}
+>
+  {d ?? ""}
+</div>
