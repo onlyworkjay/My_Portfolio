@@ -695,6 +695,8 @@ choiceId를 얻고 후기 작성하러 가기 버튼을 누르고 후기 작성 
 
 <개인 프로젝트 - Meal Plan>
 
+원본 주소: https://github.com/onlyworkjay/MealPlan-Private-Portfolio.git
+
 # Meal_Plan
 개인 포트폴리오인 Meal Plan 식단 사이트 제작
 
