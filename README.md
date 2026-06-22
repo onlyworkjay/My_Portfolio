@@ -588,6 +588,7 @@ const handleSubmit = () => {
 ## 3. 🥗 Meal Plan - 식단 기록 사이트
 
 📁 GitHub: https://github.com/onlyworkjay/MealPlan-Private-Portfolio  
+📄 발표자료: [MealPlan_Private_Portfolio.pdf](./MealPlan_Private_Portfolio.pdf)
 📊 ERD CLOUD: https://www.erdcloud.com/d/jWiZEGb86F7yWnYAi
 
 > 운동 및 식단 관리를 하는 사람들을 위해 만든 1인 개발 개인 포트폴리오 프로젝트입니다. 사진과 함께 피드를 작성해 식단을 기록하고, 통계 페이지에서 체중 변화 그래프와 사진 슬라이드로 변화 추이를 확인할 수 있습니다.
