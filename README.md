@@ -600,6 +600,8 @@ const handleSubmit = () => {
 
 http://mealplan-jay-portfolio.s3-website.ap-northeast-2.amazonaws.com/
 
+기여도: 100% (개인 프로젝트)
+
 📄 포트폴리오 PPT: [Canva 링크](https://canva.link/pdyvn5z6xrw7x76)
 
 📁 GitHub: https://github.com/onlyworkjay/MealPlan-Private-Portfolio  
