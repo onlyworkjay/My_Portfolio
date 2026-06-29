@@ -20,6 +20,8 @@ KH정보교육원 팀 프로젝트 2개 + 개인 프로젝트 저장소입니다
 
 ## 1. ♻️ C2C - 중고거래 및 커뮤니티 사이트
 
+기여도: 10%
+
 📁 GitHub: https://github.com/onlyworkjay/react_semi  
 
 📄 발표자료: [C2C 세미 프로젝트.pdf](./C2C_세미_프로젝트.pdf)
@@ -283,6 +285,8 @@ public ResponseEntity<?> deleteReport(
 <br>
 
 ## 2. 🍔 ESG - 햄버거 메뉴 비교 서비스
+
+기여도: 20% (팀원 5명 배분해서 각각 20% 가짐)
 
 📁 GitHub: https://github.com/onlyworkjay/ESG-MAIN  
 
